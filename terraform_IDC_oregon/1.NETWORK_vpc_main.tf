@@ -60,34 +60,6 @@ resource "aws_internet_gateway" "this" {
 
 
 ################################################################################
-# Security Group
-################################################################################
-
-resource "aws_security_group" "this" {
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "for SSH accss"
-  }
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "myself"
-  }
-  vpc_id = local.vpc_id
-  tags = {
-    Name = format(
-      "%s-bastion-sg",
-      var.environment
-    )
-  }
-}
-
-################################################################################
 # Public subnet
 ################################################################################
 

@@ -7,7 +7,6 @@ resource "aws_instance" "public_ec2" {
   ]
   subnet_id                     = aws_subnet.public[0].id
   iam_instance_profile          = aws_iam_instance_profile.ec2_profile.name
-  associate_public_ip_address = false
 
   root_block_device {
     volume_size = 10
