@@ -25,7 +25,7 @@ resource "aws_vpc" "this" {
   tags = {
     Name = format(
       "%s-%s",
-      var.tags,
+      var.environment,
       var.vpc_tags
     )
   }
@@ -52,7 +52,7 @@ resource "aws_internet_gateway" "this" {
   tags = {
     Name = format(
       "%s-%s",
-      var.tags,
+      var.environment,
       var.igw_tags,
     )
   }
@@ -82,7 +82,7 @@ resource "aws_security_group" "this" {
   tags = {
     Name = format(
       "%s-bastion-sg",
-      var.tags
+      var.environment
     )
   }
 }
@@ -102,7 +102,7 @@ resource "aws_subnet" "public" {
   tags = {
     Name = format(
       "%s-%s-%s",
-      var.tags,
+      var.environment,
       var.public_subnet_tags,
       local.private_subnets[count.index].zone_id
     )
@@ -124,7 +124,7 @@ resource "aws_subnet" "private" {
   tags = {
     Name = format(
       "%s-%s-%s",
-      var.tags,
+      var.environment,
       var.private_subnet_tags,
       local.private_subnets[count.index].zone_id
     )
@@ -140,7 +140,7 @@ resource "aws_eip" "eip_for_nat" {
   tags = {
     Name = format(
       "%s-eip-nat",
-      var.tags
+      var.environment
     )
   }
 }
@@ -153,7 +153,7 @@ resource "aws_nat_gateway" "this" {
   tags = {
     Name = format(
       "%s-nat",
-      var.tags,
+      var.environment,
     )
   }
 }

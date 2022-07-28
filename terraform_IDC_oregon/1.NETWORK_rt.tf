@@ -10,7 +10,7 @@ resource "aws_route_table" "public" {
   tags = {
     Name = format(
       "%s-%s",
-      var.tags,
+      var.environment,
       var.public_route_table_tags,
     )
   }
@@ -41,7 +41,7 @@ resource "aws_route_table" "private" {
   tags = {
     Name = format(
       "%s-%s",
-      var.tags,
+      var.environment,
       var.private_route_table_tags
     )
   }

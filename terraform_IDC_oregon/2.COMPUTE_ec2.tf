@@ -15,7 +15,10 @@ resource "aws_instance" "public_ec2" {
   }
   key_name = var.ec2_key_name
   tags = {
-    Name = "Public-IDC-Server(CGW)"
+    Name = format(
+      "Public-%s-Server",
+      var.environment
+    )
   }
   depends_on = [
     aws_iam_role_policy_attachment.EC2RoleforSSM,
@@ -39,7 +42,10 @@ resource "aws_instance" "private_ec2" {
   }
   key_name = var.ec2_key_name
   tags = {
-    Name = "Private-IDC-Server"
+    Name = format(
+      "Private-%s-Server",
+      var.environment
+    )
   }
   depends_on = [
     aws_iam_role_policy_attachment.EC2RoleforSSM,
@@ -53,7 +59,7 @@ resource "aws_eip" "this" {
   tags = {
     Name = format(
       "%s-eip-bastion",
-      var.tags
+      var.environment
     )
   }
 }

@@ -31,16 +31,16 @@ resource "aws_security_group" "public-sg" {
 
   name = format(
     "%s-public-sg",
-    var.tags,
+    var.environment,
   )
   description = format(
     "%s-public-sg",
-    var.tags,
+    var.environment,
   )
   tags = {
     Name = format(
       "%s-public-sg",
-      var.tags,
+      var.environment,
     )
   }
 }
@@ -71,16 +71,16 @@ resource "aws_security_group" "private-sg" {
 
   name = format(
     "%s-private-sg",
-    var.tags,
+    var.environment,
   )
   description = format(
     "%s-private-sg",
-    var.tags,
+    var.environment,
   )
   tags = {
     Name = format(
       "%s-private-sg",
-      var.tags,
+      var.environment,
     )
   }
 }

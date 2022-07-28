@@ -82,7 +82,7 @@ variable "enable_dns_support" {
   default     = true
 }
 
-variable "tags" {
+variable "environment" {
   description = "A map of tags to add to all resources"
   type        = string
   default     = "IDC"

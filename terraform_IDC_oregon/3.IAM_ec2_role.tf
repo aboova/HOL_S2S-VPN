@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ec2_role" {
-  name = "ec2-role"
+  name = "ec2-role-idc"
 
   assume_role_policy = <<POLICY
 {
@@ -27,6 +27,6 @@ resource "aws_iam_role_policy_attachment" "EC2RoleforSSM" {
 }
 
 resource "aws_iam_instance_profile" "ec2_profile" {
-  name = "ec2-profile"
+  name = "ec2-profile-idc"
   role = aws_iam_role.ec2_role.name
 }
