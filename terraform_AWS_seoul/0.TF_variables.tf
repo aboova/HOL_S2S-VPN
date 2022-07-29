@@ -55,13 +55,13 @@ variable "nat_gateway_tags" {
 variable "region" {
   description = "The region to deploy the cluster in, e.g: ap-northeast-2"
   type        = string
-  default     = "ap-northeast-1" #tokyo
+  default     = "ap-northeast-2" # seoul
 }
 
 variable "azs" {
   description = "A list of availability zones names or ids in the region"
   type        = list(string)
-  default     = ["ap-northeast-1a", "ap-northeast-1c"]
+  default     = ["ap-northeast-2a", "ap-northeast-2c"]
 }
 
 variable "enable_flow_log" {

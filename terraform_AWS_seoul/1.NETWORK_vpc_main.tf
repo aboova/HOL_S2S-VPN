@@ -1,5 +1,5 @@
 provider "aws" {
-    region = "ap-northeast-1" # 해당하는 Region 입력
+    region = "ap-northeast-2" # 해당하는 Region 입력
 }
 
 locals {
