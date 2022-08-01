@@ -1,3 +1,7 @@
+data "template_file" "user_data" {
+  template = file("./userdata.sh")
+}
+
 ##Public Instance
 resource "aws_instance" "public_ec2" {
   ami           = "ami-098e42ae54c764c35"
